@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Medicine Report</title>
+    <style>
+        /* Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Medicine Report</h1>
+
+    <h2>Report Generation Process</h2>
+    <p>To generate a medicine report, please follow the steps below:</p>
+
+    <ol>
+        <li>Enter the necessary details for the medicine report, such as medicine name, dosage, frequency, and directions for use.</li>
+        <li>Review the entered information to ensure accuracy and completeness.</li>
+        <li>Click on the "Generate Report" button to generate the medicine report.</li>
+        <li>The generated report will be displayed below with the provided details.</li>
+        <li>You can then save or print the report for further use or distribution.</li>
+    </ol>
+
+    <h2>Medicine Report Details</h2>
+
+    <form id="medicineReportForm">
+        <label for="medicineName">Medicine Name:</label>
+        <input type="text" id="medicineName" name="medicineName" required>
+        <label for="dosage">Dosage:</label>
+        <input type="text" id="dosage" name="dosage" required>
+        <label for="frequency">Frequency:</label>
+        <input type="text" id="frequency" name="frequency" required>
+        <label for="directionsForUse">Directions for Use:</label>
+        <textarea id="directionsForUse" name="directionsForUse" rows="4" required></textarea>
+        <button type="button" onclick="generateReport()">Generate Report</button>
+    </form>
+
+    <div id="reportContainer"></div>
+
+    <script>
+        function generateReport() {
+            var medicineName = document.getElementById("medicineName").value;
+            var dosage = document.getElementById("dosage").value;
+            var frequency = document.getElementById("frequency").value;
+            var directionsForUse = document.getElementById("directionsForUse").value;
+
+            var reportContainer = document.getElementById("reportContainer");
+            reportContainer.innerHTML = "";
+
+            var reportHeading = document.createElement("h3");
+            reportHeading.textContent = "Medicine Report";
+            reportContainer.appendChild(reportHeading);
+
+            var medicineNamePara = document.createElement("p");
+            medicineNamePara.innerHTML = "<strong>Medicine Name:</strong> " + medicineName;
+            reportContainer.appendChild(medicineNamePara);
+
+            var dosagePara = document.createElement("p");
+            dosagePara.innerHTML = "<strong>Dosage:</strong> " + dosage;
+            reportContainer.appendChild(dosagePara);
+
+            var frequencyPara = document.createElement("p");
+            frequencyPara.innerHTML = "<strong>Frequency:</strong> " + frequency;
+            reportContainer.appendChild(frequencyPara);
+
+            var directionsForUsePara = document.createElement("p");
+            directionsForUsePara.innerHTML = "<strong>Directions for Use:</strong> " + directionsForUse;
+            reportContainer.appendChild(directionsForUsePara);
+
+            // Clear the form fields
+            document.getElementById("medicineName").value = "";
+            document.getElementById("dosage").value = "";
+            document.getElementById("frequency").value = "";
+            document.getElementById("directionsForUse").value = "";
+        }
+    </script>
+
+</body>
+</html>
